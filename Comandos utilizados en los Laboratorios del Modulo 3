@@ -1,0 +1,84 @@
+Comandos utilizados en los Laboratorios del Modulo 3
+
+========================
+Practica 1
+========================
+
+Comando para entrar a la configuracion de GRUB
+sudo nano /etc/default/grub
+
+Pasos para mostrar el metodo de recuperacion si se olvido la contraseña root
+Presionar Esc al reiniciar el sistema
+Luego presionar la letra e
+Reemplazando ro .... splash de la linea linux escribir: rw init=/bin/bash
+Luego Ctrl + x
+
+Comandos usados desde la terminal 
+passwd root
+sync && /sbin/reboot -f
+
+=======================
+Practica 2
+=======================
+
+Comando para crear el Archivo del script
+nano backup.sh
+
+Script dentro de nano
+#!/bin/bash
+
+FECHA=$(date +"%d-%m-%Y_%H-%M")
+USER="manuel0519"
+ARCHIVO="backup_$FECHA.tar.gz"
+
+tar -czf "$ARCHIVO" "/home/$USER" 
+echo se ha realizado el backup
+
+Comando para crear el Archivo del script
+nano ifconfig.sh
+
+Script dentro de nano
+#!/bin/bash
+echo "Ingrese un nombre para su Archivo"
+read NOMBRE
+$DESKTOP="/home/manuel0519/Desktop"
+
+ifconfig > "$DESK/$NOMBRE.txt"; 
+
+echo "Se ha generado el Archivo
+
+
+Comandos para ejecutar el Archivo 
+chmod 774 nombre-del-script.sh (para poder ejecutarlo)
+sudo ./nombre-del-script.sh
+
+===============================
+Practica 3
+===============================
+
+Comandos para ver la direccion ip
+netplan status -a
+ip a
+
+Comando para hacer ping 
+ping direccion-ip
+
+Comandos usados ssh
+sudo apt install openssh-server
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+
+Comando para iniciar conexion ssh
+ssh usuario@direccion-ip-de-la-vm
+
+Comando para generar las claves 
+ssh-keygen -t el-tipo-que-desees
+
+Comando para buscar la clave publica
+Get-Content la-ruta-de-la-clave
+
+Comando para copiar la clave publica en la VM
+sudo nano ~/.ssh/authorized_keys
+
+
